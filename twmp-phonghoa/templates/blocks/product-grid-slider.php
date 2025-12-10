@@ -4,7 +4,7 @@ $data = wp_parse_args($args, [
 	'class' => '',
 	'items' => [],
 	'query' => null,
-	'lazyload' => true,
+	'lazyload' => false,
 	'enable_container' => false
 ]);
 
