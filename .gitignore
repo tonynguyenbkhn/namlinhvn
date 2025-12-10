@@ -1,0 +1,8 @@
+/node_modules
+/twentytwentyfive
+/twentytwentyfour
+/twentytwentythree
+package-lock.json
+package.json
+webpack.config.js
+index.php
