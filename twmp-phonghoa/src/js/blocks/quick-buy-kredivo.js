@@ -23,7 +23,7 @@ export default el => {
 		// Tạo form ẩn
 		const tempForm = document.createElement('form')
 		tempForm.method = 'POST'
-		tempForm.action = `${addToCartUrl}/?add-to-cart=${productToAdd}`
+		tempForm.action = `${addToCartUrl}/?add-to-cart=${productToAdd}&buy_now=1&pay=kredivo`
 		tempForm.style.display = 'none'
 
 		// Tạo input cần thiết
@@ -38,6 +38,8 @@ export default el => {
 		// Append dữ liệu
 		tempForm.appendChild(input('add-to-cart', variationId || productId))
 		tempForm.appendChild(input('quantity', quantity))
+		tempForm.appendChild(input('buy_now', '1'))
+		tempForm.appendChild(input('pay', 'kredivo'))
 
 		variableItemSelect.forEach(selectEl => {
 			if (selectEl.value) {

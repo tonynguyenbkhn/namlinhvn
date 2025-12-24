@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					? $buttonEl.data('product-id')
 					: Number($buttonElValue) > 0
 					? $buttonElValue
-					: 0
+					: 0	
 			if (productId > 0) {
 				e.preventDefault()
 
@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
 								response.cart_hash,
 								$buttonEl
 							])
+							window.location.href = '/checkout/?pay=kredivo'
 						}
 					}
 				})

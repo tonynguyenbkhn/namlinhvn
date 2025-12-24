@@ -310,6 +310,7 @@ add_action('woocommerce_after_add_to_cart_button', 'wcs_quick_buy');
 function wcs_quick_buy()
 {
     get_template_part('templates/blocks/quick-buy', null, []);
+    get_template_part('templates/blocks/quick-buy-kredivo', null, []);
 }
 
 // 8. Remove woocommerce notices
@@ -833,4 +834,12 @@ add_action('wp_footer', function () {
         }
     </style>
 <?php
+});
+
+add_action('woocommerce_add_to_cart', function () {
+    if (isset($_REQUEST['buy_now']) && $_REQUEST['buy_now'] === '1') {
+        if (WC()->session) {
+            WC()->session->set('chosen_payment_method', 'kredivo');
+        }
+    }
 });

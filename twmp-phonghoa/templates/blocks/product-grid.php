@@ -61,7 +61,7 @@ switch ($block_layout):
 		$grid_css_class .= ' columns-6';
 		break;
 endswitch;
-
+       
 if ($post_query->have_posts()) :
 ?>
 
@@ -75,11 +75,10 @@ if ($post_query->have_posts()) :
 					'class' => 'product-grid__header',
 					'title' => $data && !empty($data['title']) ? $data['title'] : '',
 					'description' => $data && !empty($data['description']) ? $data['description'] : '',
-					'link' => $data['button']['button_url'] ? esc_url($data['button']['button_url']) : '',
-					'link' => $data['button']['button_url'] ? esc_url($data['button']['button_url']) : '',
+					'link' => !empty($data['button']) && $data['button']['button_url'] ? esc_url($data['button']['button_url']) : ''
 				]);
 				?>
-				<?php if ($data['button'] && $data['button']['button_text']): ?>
+				<?php if (!empty($data['button']) && $data['button']['button_text']): ?>
 					<div class="product-grid-slider__button product-view-more__button">
 						<?php
 						get_template_part('templates/core-blocks/button', null, [
